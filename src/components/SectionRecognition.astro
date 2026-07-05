@@ -1,0 +1,79 @@
+---
+const talks = [
+  {
+    event: 'Product Summit, Sopot',
+    date: 'June 2026',
+    topic: 'Product Discovery automation with AI agents. Delivered in Polish.',
+  },
+  {
+    event: 'Internal training, Warsaw',
+    date: 'May 2026',
+    topic: 'Using code to automate product workflows and build autonomous / human-in-the-loop agents.',
+  },
+  {
+    event: 'E-commerce Expo, Berlin',
+    date: 'February 2026',
+    topic: 'On-site customer discovery for MarTech.',
+  },
+];
+
+const quotes = [
+  {
+    text: '«The way he frames problems now — that\'s strategic-level thinking.»',
+    author: 'Vlad Zhovtenko',
+    role: 'CEO, RedTrack.io',
+  },
+  {
+    text: '«He is the kind of person who turns complex and risky startup hypotheses into functioning businesses.»',
+    author: 'Dzmitry Khudy',
+    role: 'CEO, Zorka.Agency',
+  },
+  {
+    text: '«When budget cuts hit Roketo, Vlad secured grants, retained the team, and led our pivot as CPO. A highly reliable product leader.»',
+    author: 'Taras Dovgal',
+    role: 'Co-Founder at NoVPS · previously at Roketo',
+  },
+];
+---
+
+<section id="recognition" class="mx-auto max-w-3xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-10 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    07 · Recognition
+  </p>
+
+  <h3 class="mb-6 text-xl font-semibold tracking-tight text-[color:var(--color-ink)]">Speaking</h3>
+  <ul class="mb-16 divide-y hairline border-t border-b hairline">
+    {
+      talks.map(({ event, date, topic }) => (
+        <li class="grid gap-1 py-4 md:grid-cols-[1fr_auto] md:items-baseline md:gap-6">
+          <div>
+            <div class="text-base font-medium tracking-tight text-[color:var(--color-ink)]">
+              {event}
+            </div>
+            <div class="text-sm text-[color:var(--color-muted)]">{topic}</div>
+          </div>
+          <div class="text-sm text-[color:var(--color-muted)] numeric md:text-right">
+            {date}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h3 class="mb-8 text-xl font-semibold tracking-tight text-[color:var(--color-ink)]">What people say</h3>
+  <div class="space-y-8">
+    {
+      quotes.map(({ text, author, role }) => (
+        <figure>
+          <blockquote class="text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+            {text}
+          </blockquote>
+          <figcaption class="mt-3 text-sm text-[color:var(--color-muted)]">
+            <span class="font-medium text-[color:var(--color-ink)]">{author}</span>
+            {role && <>, {role}</>}
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>

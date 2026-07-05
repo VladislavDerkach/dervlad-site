@@ -1,0 +1,124 @@
+---
+import { Image } from 'astro:assets';
+import handoverboatPrimary from '../assets/screenshots/handoverboat/zone9_anchor_windlass.jpeg';
+import handoverboatVerify from '../assets/screenshots/handoverboat/verification_record.jpeg';
+import mangaltimePrimary from '../assets/screenshots/mangaltime/timer_running.jpeg';
+import mangaltimeSecondary from '../assets/screenshots/mangaltime/meat_selection.jpeg';
+---
+
+<section id="builds" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+      06 · Personal builds
+    </p>
+    <p class="mb-16 text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+      I ship products under my own name, not just under a job title. Two live,
+      several in the pipeline.
+    </p>
+  </div>
+
+  <div class="space-y-24">
+
+    <!-- HandoverBoat -->
+    <article class="grid gap-10 md:grid-cols-[1.35fr_1fr] md:items-center md:gap-16">
+      <div class="order-2 md:order-1">
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
+          HandoverBoat
+        </h3>
+        <p class="mb-6 text-sm text-[color:var(--color-muted)]">
+          <a href="https://handoverboat.com" class="text-[color:var(--color-accent)] hover:underline">
+            handoverboat.com
+          </a>
+          · charter deposit protection · flagship
+        </p>
+        <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
+          <p>
+            A charter deposit protection platform for yacht and boat rentals.
+            Before you sail: photograph the boat's condition with GPS-timestamped,
+            RFC 3161–qualified evidence. When you return: a matching inspection
+            produces a before/after PDF the operator and the charterer both sign
+            against. A public verify endpoint lets anyone independently confirm
+            the record wasn't edited.
+          </p>
+          <p>
+            Built solo, top to bottom: system architecture, Next.js 15 + Supabase +
+            Stripe stack, UI/UX, illustrations, product design, legal review across
+            HR/EL/IT/PL jurisdictions, copy, SEO, launch. Deployed on Vercel. Eight
+            languages live at launch.
+          </p>
+          <p class="text-[color:var(--color-muted)]">
+            Positioning: an independent evidence record with a reversal of the
+            burden of proof — not a «you-signed-so-you-accepted» acceptance engine.
+          </p>
+        </div>
+      </div>
+      <div class="order-1 space-y-4 md:order-2">
+        <Image
+          src={handoverboatPrimary}
+          alt="HandoverBoat — inspection zone view showing anchor & windlass with photo points"
+          widths={[400, 720]}
+          sizes="(min-width: 768px) 40vw, 100vw"
+          class="h-auto w-full rounded-sm border hairline"
+        />
+        <Image
+          src={handoverboatVerify}
+          alt="HandoverBoat — Independent Verification Record PDF with QR code"
+          widths={[400, 720]}
+          sizes="(min-width: 768px) 40vw, 100vw"
+          class="h-auto w-full rounded-sm border hairline"
+        />
+      </div>
+    </article>
+
+    <!-- Mangal Time -->
+    <article class="grid gap-10 md:grid-cols-[1fr_1.35fr] md:items-center md:gap-16">
+      <div class="space-y-4">
+        <Image
+          src={mangaltimePrimary}
+          alt="Mangal Time — timer running in bright outdoor mode"
+          widths={[320, 640]}
+          sizes="(min-width: 768px) 32vw, 100vw"
+          class="h-auto w-full rounded-sm border hairline"
+        />
+        <Image
+          src={mangaltimeSecondary}
+          alt="Mangal Time — meat selection with illustrated icons and RU/EN/PL language toggle"
+          widths={[320, 640]}
+          sizes="(min-width: 768px) 32vw, 100vw"
+          class="h-auto w-full rounded-sm border hairline"
+        />
+      </div>
+      <div>
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
+          Mangal Time
+        </h3>
+        <p class="mb-6 text-sm text-[color:var(--color-muted)]">
+          <a href="https://mangal-time.shop" class="text-[color:var(--color-accent)] hover:underline">
+            mangal-time.shop
+          </a>
+          · consumer app, multilingual, live in production
+        </p>
+        <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
+          <p>
+            A shashlyk grilling timer and assistant. The interesting product decision:
+            the UX is designed around the operator's real conditions — dirty hands,
+            bright sun, awkward posture, split attention. Every touch target, every
+            timer trigger, every glanceable state is tuned for that context, not for
+            a comfortable office demo.
+          </p>
+          <p>
+            The domain runs deeper than a timer. Meat type and cut, coal stage,
+            open-flame behavior, fuel type, height above coals, skewer count — a
+            grillmaster's tacit knowledge translated into structured inputs.
+            Multilingual from launch across RU / EN / PL, illustrated in-house,
+            adapted for the moment of use, not the moment of a design review.
+          </p>
+          <p class="text-[color:var(--color-muted)]">
+            Built for friends; open to the world.
+          </p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>

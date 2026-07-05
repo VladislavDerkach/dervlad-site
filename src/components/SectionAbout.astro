@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import aboutPortrait from '../assets/portraits/about.jpg';
+---
+
+<section id="about" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-10 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    03 · About
+  </p>
+  <div class="grid gap-12 md:grid-cols-[1fr_1.4fr] md:items-start md:gap-16">
+    <div>
+      <Image
+        src={aboutPortrait}
+        alt="Vlad Derkach"
+        widths={[320, 640]}
+        sizes="(min-width: 768px) 30vw, 100vw"
+        class="h-auto w-full rounded-sm"
+      />
+    </div>
+    <div class="space-y-5 text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+      <p>Twelve years in product across MarTech, Web3, FinTech, HealthTech, and hardware.</p>
+      <p>
+        I've been Chief Product Officer once — at Roketo, where I took over as CPO
+        during the 2022 Web3 downturn and led the pivot to QUV.io on $70K in grants
+        after half of the parent holding shut down. Before and after that, Product
+        Manager and Product Lead at Zorka.Agency (FemFast), ERA Wallet, a crypto
+        neobank across LATAM and EU, NOWPayments, ChangeNOW, Belkasoft, and others.
+        Currently Product Discovery Lead and AI Champion at RedTrack.io.
+      </p>
+      <p>
+        My operating principle is simple: <em>adoption follows evidence</em>.
+        I run product on Advanced Jobs-to-be-Done and Next Move Theory — the Zamesin
+        canon, not the generic Christensen version. 300+ customer interviews so far.
+        Before I trained as a product manager I trained as a lawyer (Master of Law,
+        Belarusian State University) — a useful foundation for precision and
+        evidence discipline.
+      </p>
+      <p>
+        I sail. Not as a hobby garnish — sailing teaches the same things a product
+        organization needs at scale: teamwork, resilience, focus, and calm under
+        pressure.
+      </p>
+      <p class="pt-2 text-base text-[color:var(--color-muted)]">
+        Based in Europe, remote-first. Currently at RedTrack; open to AI CPO and
+        Head of AI Product roles, and to advising one or two AI-native product
+        teams on the side.
+      </p>
+    </div>
+  </div>
+</section>

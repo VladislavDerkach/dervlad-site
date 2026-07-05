@@ -1,0 +1,75 @@
+---
+const cases = [
+  {
+    id: 'redtrack',
+    number: '04a',
+    title: 'Building AI-Native Product Operations at RedTrack.io',
+    role: 'Product Discovery Lead & AI Champion · November 2025 – present',
+    paragraphs: [
+      "RedTrack is a MarTech attribution and analytics platform. When I joined, Discovery was ad-hoc, no AI ran in operations, and the e-com/DTC pivot from an affiliate-heavy customer base was underway with a closing Voluum-migration window on top.",
+      "<strong>What I built.</strong> I turned Discovery from a phase into a company function. A Discovery Request standard now sits at the front of every hypothesis, backed by a Notion-native backlog and a Discovery → decision → delivery flow that produces C-level risk memos before big bets. Around it I run 25+ Claude agents in production: a weekly Competitor Scout tracking 17 platforms, a Discovery agent network doing Job-Graph segmentation and market-map ROI, a Mobile App Reviews digest, an Onboarding Copilot, and — with my first direct report — a Support AI Assistant that reads each customer's live account settings behind two PII layers, not just the knowledge base. On top of the RT MCP server, an MCP Skills Pack delivers value to users through their own AI agents before they pay us — B2A infrastructure acting as an acquisition channel.",
+      "<strong>What changed.</strong> Four months in, I entered the Leadership Hub — the C-level strategy body. The mobile app shipped on iOS and Android. E-com and affiliate dashboards were defined, built, and released. MCP has been live in production since June 2026. Twelve strategic outputs were personally green-lit by the CEO over the first seven months.",
+    ],
+    numbers: "25+ agents live · 17 competitors monitored weekly · mobile iOS + Android launched · MCP in production · 1 direct report · Leadership Hub seat",
+  },
+  {
+    id: 'roketo',
+    number: '04b',
+    title: 'CPO Through the 2022 Web3 Downturn',
+    role: 'Product Manager → Chief Product Officer · Roketo · May 2022 – August 2023',
+    paragraphs: [
+      "Roketo streamed tokens as smart contracts on NEAR — a Web3 primitive with product-market fit signals, then a downturn. Between Q3 2022 and Q1 2023, half of Kikimora Labs — the parent holding — shut down. External funding wasn't available, and the runway on token-streaming as a category narrowed to a wallet + payment use case.",
+      "<strong>The move.</strong> I was promoted from Product Manager to CPO to lead the response. I redefined the product vision around a wallet + integrated payment solution and repositioned Roketo as QUV.io. I secured $70K in grants to buy runway without dilution. I kept the entire team — while half the holding was closing — through the pivot.",
+      "<strong>The base that made the pivot survivable.</strong> In my first six months as PM I had rebuilt the on-chain flow: conversion 4×, $2.3M moved across 7,600 transactions, partner reach 3× through API integrations. That base is what made the pivot survivable.",
+    ],
+    numbers: "$2.3M smart-contract volume in 6 months · 7,600 on-chain transactions · ×4 conversion · ×3 partner reach · $70K grants secured · 0 team losses during a period when the parent holding lost half its projects",
+  },
+  {
+    id: 'femfast',
+    number: '04c',
+    title: 'MVP for an AI Wellness App in 2 Months',
+    role: 'Product Lead · Zorka.Agency (FemFast) · March – November 2025',
+    paragraphs: [
+      "FemFast is a personalized AI-driven wellness app for women that aligns fasting, workouts, and supplements with hormonal cycles. The task was to ship an MVP that would justify further investment in 60 days, without team expansion, in a category Meta restricts for advertising by default.",
+      "<strong>Discovery-first.</strong> I ran 40+ JTBD interviews with the target segment before writing a single requirement. That produced sharp segmentation and let me trim MVP scope to what the smallest coherent audience would actually pay for — instead of shipping the founder's original wish-list at half quality.",
+      "<strong>Attribution and paywalls.</strong> I set up a paywall analytics stack with RevenueCat, Mixpanel, and AppsFlyer, and implemented SKAdNetwork and Meta's AEM so we could measure conversions on iOS 14+ without breaking privacy defaults.",
+      "<strong>Ads unlocked.</strong> After sustained work with Meta, we secured approval to advertise in restricted categories — a category-level access, not a one-off ad. That let paid acquisition compound.",
+    ],
+    numbers: "MVP shipped in 2 months, on time, no team expansion · onboarding completion 33% → 75% · CAC −16% · organic installs 7.9% → 23.7% · SKAdNetwork + AEM unlocked 78% of previously unavailable events · ×3 UA volume with stable CPI after Meta approval",
+  },
+];
+---
+
+<section id="cases" class="mx-auto max-w-3xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-10 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    04 · Selected case studies
+  </p>
+  <div class="space-y-20 md:space-y-24">
+    {
+      cases.map((c) => (
+        <article id={c.id} class="scroll-mt-16">
+          <p class="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+            {c.number}
+          </p>
+          <h3 class="mb-2 text-2xl font-bold leading-tight tracking-tight text-[color:var(--color-ink)] md:text-3xl">
+            {c.title}
+          </h3>
+          <p class="mb-8 text-sm text-[color:var(--color-muted)]">{c.role}</p>
+          <div class="space-y-5 text-lg leading-relaxed text-[color:var(--color-ink)]">
+            {c.paragraphs.map((p) => (
+              <p set:html={p} />
+            ))}
+          </div>
+          <div class="mt-8 border-t hairline pt-5">
+            <p class="text-xs font-medium uppercase tracking-[0.15em] text-[color:var(--color-muted)] numeric mb-2">
+              Numbers
+            </p>
+            <p class="text-sm leading-relaxed text-[color:var(--color-ink)] numeric">
+              {c.numbers}
+            </p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

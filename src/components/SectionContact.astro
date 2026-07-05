@@ -1,0 +1,42 @@
+---
+const links = [
+  { label: 'Email', href: 'mailto:info@dervlad.com', display: 'info@dervlad.com' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vladislavderkach/', display: 'linkedin.com/in/vladislavderkach' },
+  { label: 'Telegram', href: 'https://t.me/der_vlad', display: '@der_vlad' },
+];
+---
+
+<section id="contact" class="mx-auto max-w-3xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-10 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    08 · Contact
+  </p>
+
+  <div class="mb-12 space-y-3 text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+    <p><span class="text-[color:var(--color-muted)]">Currently:</span> Product Discovery Lead & AI Champion at RedTrack.io.</p>
+    <p><span class="text-[color:var(--color-muted)]">Open to:</span> AI CPO and Head of AI Product roles at scale-ups and Series A/B startups.</p>
+    <p><span class="text-[color:var(--color-muted)]">Also:</span> available to advise one or two AI-native product teams on the side.</p>
+  </div>
+
+  <ul class="mb-10 divide-y hairline border-t border-b hairline">
+    {
+      links.map(({ label, href, display }) => (
+        <li class="grid grid-cols-[auto_1fr] items-baseline gap-6 py-4">
+          <div class="text-sm text-[color:var(--color-muted)]">{label}</div>
+          <a href={href} class="text-base text-[color:var(--color-accent)] hover:underline">
+            {display}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="text-sm text-[color:var(--color-muted)]">
+    Based in Europe · remote-first.
+  </p>
+</section>
+
+<footer class="border-t hairline">
+  <div class="mx-auto max-w-3xl px-6 py-10 text-xs text-[color:var(--color-muted)] numeric">
+    © 2026 Vlad Derkach · dervlad.com
+  </div>
+</footer>

@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import heroPortrait from '../assets/portraits/hero.jpg';
+---
+
+<section class="mx-auto max-w-5xl px-6 pb-16 pt-20 md:pt-28">
+  <div class="grid gap-12 md:grid-cols-[1.15fr_1fr] md:items-center md:gap-16">
+    <div>
+      <p class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+        01 · Vlad Derkach
+      </p>
+      <h1 class="mb-4 text-4xl font-bold leading-[1.05] tracking-tight text-[color:var(--color-ink)] md:text-5xl lg:text-6xl">
+        AI Product Leader
+      </h1>
+      <p class="mb-8 text-lg text-[color:var(--color-muted)] md:text-xl">
+        12 years · 4 industries
+      </p>
+      <p class="max-w-xl text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+        Currently building RedTrack's AI product organization — 25+ agents in production,
+        an MCP-based B2A strategy, and a Discovery function that turns C-level risk
+        into decisions.
+      </p>
+      <a
+        href="#now"
+        class="mt-10 inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-accent)] hover:underline"
+      >
+        See how I work
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="relative">
+      <Image
+        src={heroPortrait}
+        alt="Vlad Derkach"
+        widths={[400, 720, 1040]}
+        sizes="(min-width: 768px) 42vw, 100vw"
+        class="h-auto w-full rounded-sm"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>

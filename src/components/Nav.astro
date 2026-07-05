@@ -1,0 +1,30 @@
+---
+const links = [
+  { href: '#now', label: 'Now' },
+  { href: '#cases', label: 'Cases' },
+  { href: '#builds', label: 'Builds' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<nav class="sticky top-0 z-40 border-b hairline bg-[color:var(--color-cream)]/85 backdrop-blur">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-sm font-semibold tracking-tight text-[color:var(--color-ink)]">
+      Vlad Derkach
+    </a>
+    <ul class="flex items-center gap-6 text-sm text-[color:var(--color-muted)]">
+      {
+        links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class="transition-colors hover:text-[color:var(--color-accent)]"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
