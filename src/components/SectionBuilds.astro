@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets';
 import handoverboatPrimary from '../assets/screenshots/handoverboat/walk_full_boat.png';
 import handoverboatStart from '../assets/screenshots/handoverboat/start_protect_deposit.png';
+import handoverboatList from '../assets/screenshots/handoverboat/list_inspections.png';
 import mangaltimePrimary from '../assets/screenshots/mangaltime/home_first_try.png';
+import mangaltimeMeat from '../assets/screenshots/mangaltime/meat_parameters.png';
 import mangaltimeSecondary from '../assets/screenshots/mangaltime/timer_flip_cue.png';
 ---
 
@@ -67,6 +69,13 @@ import mangaltimeSecondary from '../assets/screenshots/mangaltime/timer_flip_cue
           sizes="(min-width: 768px) 40vw, 100vw"
           class="h-auto w-full rounded-sm border hairline"
         />
+        <Image
+          src={handoverboatList}
+          alt="HandoverBoat — inspections dashboard listing every boat handover, searchable across seasons and available offline"
+          widths={[400, 720]}
+          sizes="(min-width: 768px) 40vw, 100vw"
+          class="h-auto w-full rounded-sm border hairline"
+        />
       </div>
     </article>
 
@@ -76,6 +85,13 @@ import mangaltimeSecondary from '../assets/screenshots/mangaltime/timer_flip_cue
         <Image
           src={mangaltimePrimary}
           alt="Mangal Time — home screen with the headline 'Juicy shashlyk on the first try' and a three-step flow, RU/EN/PL language toggle"
+          widths={[320, 640]}
+          sizes="(min-width: 768px) 32vw, 100vw"
+          class="h-auto w-full rounded-sm border hairline"
+        />
+        <Image
+          src={mangaltimeMeat}
+          alt="Mangal Time — 'Pick your meat' setup: meat type, cut, skewer count, chunk size and uniformity as structured inputs"
           widths={[320, 640]}
           sizes="(min-width: 768px) 32vw, 100vw"
           class="h-auto w-full rounded-sm border hairline"
