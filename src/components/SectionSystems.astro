@@ -1,0 +1,93 @@
+---
+const stats = [
+  { value: '11', label: 'scheduled routines' },
+  { value: '25+', label: 'production agents' },
+  { value: '17', label: 'competitors monitored weekly' },
+  { value: '12,563', label: 'support tickets analysed' },
+];
+
+const systems = [
+  {
+    name: 'Competitor Scout',
+    desc: 'Weekly intelligence across 17 tracked platforms — changelogs, pricing, positioning — synthesised and delivered to Slack.',
+  },
+  {
+    name: 'Support AI Assistant',
+    desc: "Reads each customer's live account settings behind two PII layers, not just the knowledge base. Built with my first direct report.",
+  },
+  {
+    name: 'MCP Skills Pack',
+    desc: "Delivers value inside users' own AI agents before they pay — B2A infrastructure acting as an acquisition channel.",
+  },
+];
+
+const inventoryUrl = 'https://rt-inventory-site.vercel.app';
+---
+
+<section id="systems" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    06 · AI systems, inventoried
+  </p>
+
+  <div class="mb-14 max-w-3xl">
+    <p class="text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+      «25+ agents in production» is the kind of line most portfolios can't back.
+      Mine has receipts. Everything I've shipped into RedTrack's operations with
+      AI lives in one running inventory — scheduled routines, production agents,
+      internal tools, and growth sites — each documented with what it does, when
+      it fires, and where its output lands.
+    </p>
+  </div>
+
+  <!-- Proof stats -->
+  <div class="mb-14 grid grid-cols-2 gap-8 border-y hairline py-8 md:grid-cols-4 md:py-10">
+    {
+      stats.map(({ value, label }) => (
+        <div>
+          <div class="numeric text-2xl font-semibold text-[color:var(--color-accent)] md:text-3xl">
+            {value}
+          </div>
+          <div class="mt-2 text-xs leading-snug text-[color:var(--color-muted)] md:text-sm">
+            {label}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Highlighted systems -->
+  <div class="grid gap-6 md:grid-cols-3">
+    {
+      systems.map((s) => (
+        <article class="flex flex-col rounded-sm border hairline p-6">
+          <p class="mb-3 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.18em] text-[color:var(--color-accent)] numeric">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" aria-hidden="true" />
+            live
+          </p>
+          <h3 class="mb-2 text-lg font-bold tracking-tight text-[color:var(--color-ink)]">
+            {s.name}
+          </h3>
+          <p class="text-sm leading-relaxed text-[color:var(--color-muted)]">
+            {s.desc}
+          </p>
+        </article>
+      ))
+    }
+  </div>
+
+  <!-- CTA -->
+  <div class="mt-12 flex flex-col items-start gap-3">
+    <a
+      href={inventoryUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 rounded-sm bg-[color:var(--color-accent)] px-5 py-3 text-sm font-medium text-[color:var(--color-cream)] transition-opacity hover:opacity-90"
+    >
+      Explore the full inventory
+      <span aria-hidden="true">→</span>
+    </a>
+    <p class="text-xs text-[color:var(--color-muted)]">
+      Bilingual RU / EN · internal infrastructure catalog · opens in a new tab
+    </p>
+  </div>
+</section>
