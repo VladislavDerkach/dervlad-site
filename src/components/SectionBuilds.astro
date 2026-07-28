@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-import handoverboatPrimary from '../assets/screenshots/handoverboat/zone9_anchor_windlass.jpeg';
-import handoverboatVerify from '../assets/screenshots/handoverboat/verification_record.jpeg';
-import mangaltimePrimary from '../assets/screenshots/mangaltime/timer_running.jpeg';
-import mangaltimeSecondary from '../assets/screenshots/mangaltime/meat_selection.jpeg';
+import handoverboatPrimary from '../assets/screenshots/handoverboat/walk_full_boat.png';
+import handoverboatStart from '../assets/screenshots/handoverboat/start_protect_deposit.png';
+import mangaltimePrimary from '../assets/screenshots/mangaltime/home_first_try.png';
+import mangaltimeSecondary from '../assets/screenshots/mangaltime/timer_flip_cue.png';
 ---
 
 <section id="builds" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
@@ -55,14 +55,14 @@ import mangaltimeSecondary from '../assets/screenshots/mangaltime/meat_selection
       <div class="order-1 space-y-4 md:order-2">
         <Image
           src={handoverboatPrimary}
-          alt="HandoverBoat — inspection zone view showing anchor & windlass with photo points"
+          alt="HandoverBoat — guided inspection walk showing a full sailboat illustration with photo-capture points across sixteen zones"
           widths={[400, 720]}
           sizes="(min-width: 768px) 40vw, 100vw"
           class="h-auto w-full rounded-sm border hairline"
         />
         <Image
-          src={handoverboatVerify}
-          alt="HandoverBoat — Independent Verification Record PDF with QR code"
+          src={handoverboatStart}
+          alt="HandoverBoat — start screen with the rental setup form and the headline 'Protect your deposit. Document the boat.'"
           widths={[400, 720]}
           sizes="(min-width: 768px) 40vw, 100vw"
           class="h-auto w-full rounded-sm border hairline"
@@ -75,14 +75,14 @@ import mangaltimeSecondary from '../assets/screenshots/mangaltime/meat_selection
       <div class="space-y-4">
         <Image
           src={mangaltimePrimary}
-          alt="Mangal Time — timer running in bright outdoor mode"
+          alt="Mangal Time — home screen with the headline 'Juicy shashlyk on the first try' and a three-step flow, RU/EN/PL language toggle"
           widths={[320, 640]}
           sizes="(min-width: 768px) 32vw, 100vw"
           class="h-auto w-full rounded-sm border hairline"
         />
         <Image
           src={mangaltimeSecondary}
-          alt="Mangal Time — meat selection with illustrated icons and RU/EN/PL language toggle"
+          alt="Mangal Time — live grilling timer with a 'Time to flip!' cue and a skewer illustration"
           widths={[320, 640]}
           sizes="(min-width: 768px) 32vw, 100vw"
           class="h-auto w-full rounded-sm border hairline"
