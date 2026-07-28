@@ -14,6 +14,7 @@ const phases = [
 ];
 
 const flowUrl = 'https://rt-discovery-flow.vercel.app';
+const repoUrl = 'https://github.com/VladislavDerkach/product-discovery-flow';
 ---
 
 <section id="discovery" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
@@ -64,18 +65,29 @@ const flowUrl = 'https://rt-discovery-flow.vercel.app';
   </ol>
 
   <!-- CTA -->
-  <div class="flex flex-col items-start gap-3">
-    <a
-      href={flowUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 rounded-sm bg-[color:var(--color-accent)] px-5 py-3 text-sm font-medium text-[color:var(--color-cream)] transition-opacity hover:opacity-90"
-    >
-      See the discovery flow
-      <span aria-hidden="true">→</span>
-    </a>
+  <div class="flex flex-col items-start gap-4">
+    <div class="flex flex-wrap items-center gap-3">
+      <a
+        href={flowUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-sm bg-[color:var(--color-accent)] px-5 py-3 text-sm font-medium text-[color:var(--color-cream)] transition-opacity hover:opacity-90"
+      >
+        See the discovery flow
+        <span aria-hidden="true">→</span>
+      </a>
+      <a
+        href={repoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-sm border hairline px-5 py-3 text-sm font-medium text-[color:var(--color-ink)] transition-colors hover:text-[color:var(--color-accent)]"
+      >
+        View the code on GitHub
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
     <p class="text-xs text-[color:var(--color-muted)]">
-      Install in one command · built on Advanced JTBD (Ivan Zamesin) · bilingual · opens in a new tab
+      Install in one command · built on Advanced JTBD (Ivan Zamesin) · MIT-licensed · bilingual · opens in a new tab
     </p>
   </div>
 </section>
