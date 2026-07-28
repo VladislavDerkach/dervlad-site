@@ -1,0 +1,81 @@
+---
+const specs = [
+  { value: '15', label: 'sub-agents' },
+  { value: '12', label: 'steps' },
+  { value: '4', label: 'research phases' },
+  { value: 'RU · EN', label: 'bilingual output' },
+];
+
+const phases = [
+  'Structure the brief',
+  'Parallel research — market map · competitors · community signals',
+  'AJTBD validation gate',
+  'Segmentation, QA & bilingual report',
+];
+
+const flowUrl = 'https://rt-discovery-flow.vercel.app';
+---
+
+<section id="discovery" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    07 · Discovery, packaged for other product managers
+  </p>
+
+  <div class="mb-14 max-w-3xl">
+    <p class="text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+      I didn't just run discovery at RedTrack — I turned my own discovery pipeline
+      into a toolkit any product manager can install in one command. Fifteen
+      sub-agents across twelve steps take a raw brief all the way to a structured,
+      bilingual Notion report. I authored the agent network and the orchestration;
+      the framework underneath is Ivan Zamesin's Advanced JTBD.
+    </p>
+  </div>
+
+  <!-- Spec strip -->
+  <div class="mb-12 grid grid-cols-2 gap-8 border-y hairline py-8 md:grid-cols-4 md:py-10">
+    {
+      specs.map(({ value, label }) => (
+        <div>
+          <div class="numeric text-2xl font-semibold text-[color:var(--color-accent)] md:text-3xl">
+            {value}
+          </div>
+          <div class="mt-2 text-xs leading-snug text-[color:var(--color-muted)] md:text-sm">
+            {label}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- The flow -->
+  <ol class="mb-12 grid gap-4 md:grid-cols-4">
+    {
+      phases.map((step, i) => (
+        <li class="rounded-sm border hairline p-5">
+          <span class="numeric mb-2 block text-xs font-medium text-[color:var(--color-accent)]">
+            {`0${i + 1}`}
+          </span>
+          <span class="block text-sm leading-relaxed text-[color:var(--color-ink)]">
+            {step}
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+
+  <!-- CTA -->
+  <div class="flex flex-col items-start gap-3">
+    <a
+      href={flowUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 rounded-sm bg-[color:var(--color-accent)] px-5 py-3 text-sm font-medium text-[color:var(--color-cream)] transition-opacity hover:opacity-90"
+    >
+      See the discovery flow
+      <span aria-hidden="true">→</span>
+    </a>
+    <p class="text-xs text-[color:var(--color-muted)]">
+      Install in one command · built on Advanced JTBD (Ivan Zamesin) · bilingual · opens in a new tab
+    </p>
+  </div>
+</section>
