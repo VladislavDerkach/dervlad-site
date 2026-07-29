@@ -1,13 +1,72 @@
 ---
-import { Image } from 'astro:assets';
-import handoverboatPrimary from '../assets/screenshots/handoverboat/walk_full_boat.png';
+import BuildGallery from './BuildGallery.astro';
+import type { Shot } from './BuildGallery.astro';
+
+import handoverboatWalk from '../assets/screenshots/handoverboat/walk_full_boat.png';
 import handoverboatStart from '../assets/screenshots/handoverboat/start_protect_deposit.png';
 import handoverboatList from '../assets/screenshots/handoverboat/list_inspections.png';
-import mangaltimePrimary from '../assets/screenshots/mangaltime/home_first_try.png';
+import mangaltimeHome from '../assets/screenshots/mangaltime/home_first_try.png';
 import mangaltimeMeat from '../assets/screenshots/mangaltime/meat_parameters.png';
-import mangaltimeSecondary from '../assets/screenshots/mangaltime/timer_flip_cue.png';
+import mangaltimeTimer from '../assets/screenshots/mangaltime/timer_flip_cue.png';
 import artpawHome from '../assets/screenshots/artpaw/home.png';
 import artpawProduct from '../assets/screenshots/artpaw/product.png';
+
+const handoverboatShots: Shot[] = [
+  {
+    src: handoverboatWalk,
+    alt: "HandoverBoat — guided inspection walk showing a full sailboat illustration with photo-capture points across sixteen zones",
+    label: 'Walk',
+    caption: 'Sixteen zones on one boat illustration, each a photo-capture point.',
+  },
+  {
+    src: handoverboatStart,
+    alt: "HandoverBoat — start screen with the rental setup form and the headline 'Protect your deposit. Document the boat.'",
+    label: 'Start',
+    caption: 'Rental setup before the handover — the deposit is what is at stake.',
+  },
+  {
+    src: handoverboatList,
+    alt: 'HandoverBoat — inspections dashboard listing every boat handover, searchable across seasons and available offline',
+    label: 'Records',
+    caption: 'Every handover, searchable across seasons and available offline.',
+  },
+];
+
+const mangaltimeShots: Shot[] = [
+  {
+    src: mangaltimeHome,
+    alt: "Mangal Time — home screen with the headline 'Juicy shashlyk on the first try' and a three-step flow, RU/EN/PL language toggle",
+    label: 'Home',
+    caption: 'Three steps to the first skewer, in RU / EN / PL.',
+  },
+  {
+    src: mangaltimeMeat,
+    alt: "Mangal Time — 'Pick your meat' setup: meat type, cut, skewer count, chunk size and uniformity as structured inputs",
+    label: 'Setup',
+    caption: "A grillmaster's tacit knowledge as structured inputs: cut, size, uniformity.",
+  },
+  {
+    src: mangaltimeTimer,
+    alt: "Mangal Time — live grilling timer with a 'Time to flip!' cue and a skewer illustration",
+    label: 'Timer',
+    caption: 'One glanceable cue for dirty hands and bright sun: time to flip.',
+  },
+];
+
+const artpawShots: Shot[] = [
+  {
+    src: artpawHome,
+    alt: "ArtPaw — storefront hero: 'Your Pet, Painted Like Royalty' with a gallery of framed renaissance pet portraits",
+    label: 'Storefront',
+    caption: 'The hook: your pet, painted like royalty, framed and shipped across the EU.',
+  },
+  {
+    src: artpawProduct,
+    alt: "ArtPaw — product page for 'The General — Royal Pet Portrait' showing price, sale, tax-included note, and format options",
+    label: 'Product',
+    caption: 'Formats, price, EU tax included — a real checkout, not a mockup.',
+  },
+];
 ---
 
 <section id="builds" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
@@ -21,10 +80,10 @@ import artpawProduct from '../assets/screenshots/artpaw/product.png';
     </p>
   </div>
 
-  <div class="space-y-24">
+  <div class="space-y-20 md:space-y-28">
 
     <!-- HandoverBoat -->
-    <article class="grid gap-10 md:grid-cols-[1.35fr_1fr] md:items-center md:gap-16">
+    <article class="grid gap-10 md:grid-cols-[1fr_280px] md:items-center md:gap-14">
       <div class="order-2 md:order-1">
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
           HandoverBoat
@@ -56,56 +115,14 @@ import artpawProduct from '../assets/screenshots/artpaw/product.png';
           </p>
         </div>
       </div>
-      <div class="order-1 space-y-4 md:order-2">
-        <Image
-          src={handoverboatPrimary}
-          alt="HandoverBoat — guided inspection walk showing a full sailboat illustration with photo-capture points across sixteen zones"
-          widths={[400, 720]}
-          sizes="(min-width: 768px) 40vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
-        <Image
-          src={handoverboatStart}
-          alt="HandoverBoat — start screen with the rental setup form and the headline 'Protect your deposit. Document the boat.'"
-          widths={[400, 720]}
-          sizes="(min-width: 768px) 40vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
-        <Image
-          src={handoverboatList}
-          alt="HandoverBoat — inspections dashboard listing every boat handover, searchable across seasons and available offline"
-          widths={[400, 720]}
-          sizes="(min-width: 768px) 40vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
+      <div class="order-1 md:order-2">
+        <BuildGallery id="handoverboat" title="HandoverBoat" shots={handoverboatShots} />
       </div>
     </article>
 
     <!-- Mangal Time -->
-    <article class="grid gap-10 md:grid-cols-[1fr_1.35fr] md:items-center md:gap-16">
-      <div class="space-y-4">
-        <Image
-          src={mangaltimePrimary}
-          alt="Mangal Time — home screen with the headline 'Juicy shashlyk on the first try' and a three-step flow, RU/EN/PL language toggle"
-          widths={[320, 640]}
-          sizes="(min-width: 768px) 32vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
-        <Image
-          src={mangaltimeMeat}
-          alt="Mangal Time — 'Pick your meat' setup: meat type, cut, skewer count, chunk size and uniformity as structured inputs"
-          widths={[320, 640]}
-          sizes="(min-width: 768px) 32vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
-        <Image
-          src={mangaltimeSecondary}
-          alt="Mangal Time — live grilling timer with a 'Time to flip!' cue and a skewer illustration"
-          widths={[320, 640]}
-          sizes="(min-width: 768px) 32vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
-      </div>
+    <article class="grid gap-10 md:grid-cols-[280px_1fr] md:items-center md:gap-14">
+      <BuildGallery id="mangaltime" title="Mangal Time" shots={mangaltimeShots} />
       <div>
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
           Mangal Time
@@ -139,7 +156,7 @@ import artpawProduct from '../assets/screenshots/artpaw/product.png';
     </article>
 
     <!-- ArtPaw -->
-    <article class="grid gap-10 md:grid-cols-[1.35fr_1fr] md:items-center md:gap-16">
+    <article class="grid gap-10 md:grid-cols-[1fr_280px] md:items-center md:gap-14">
       <div class="order-2 md:order-1">
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
           ArtPaw
@@ -168,21 +185,8 @@ import artpawProduct from '../assets/screenshots/artpaw/product.png';
           </p>
         </div>
       </div>
-      <div class="order-1 space-y-4 md:order-2">
-        <Image
-          src={artpawHome}
-          alt="ArtPaw — storefront hero: 'Your Pet, Painted Like Royalty' with a gallery of framed renaissance pet portraits"
-          widths={[400, 720]}
-          sizes="(min-width: 768px) 40vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
-        <Image
-          src={artpawProduct}
-          alt="ArtPaw — product page for 'The General — Royal Pet Portrait' showing price, sale, tax-included note, and format options"
-          widths={[400, 720]}
-          sizes="(min-width: 768px) 40vw, 100vw"
-          class="h-auto w-full rounded-sm border hairline"
-        />
+      <div class="order-1 md:order-2">
+        <BuildGallery id="artpaw" title="ArtPaw" shots={artpawShots} />
       </div>
     </article>
 

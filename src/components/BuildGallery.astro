@@ -1,0 +1,155 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Shot {
+  src: ImageMetadata;
+  alt: string;
+  label: string;
+  caption: string;
+}
+
+interface Props {
+  id: string;
+  title: string;
+  shots: Shot[];
+}
+
+const { id, title, shots } = Astro.props;
+---
+
+<div class="mx-auto w-full max-w-[240px] md:max-w-none" data-gallery>
+  <!-- Screens: one visible at a time, in a fixed-ratio box so nothing shifts -->
+  <div class="relative aspect-[860/1864] overflow-hidden rounded-[1.75rem] border hairline">
+    {
+      shots.map((shot, i) => (
+        <div
+          class="gallery-panel absolute inset-0"
+          role="tabpanel"
+          id={`${id}-panel-${i}`}
+          aria-labelledby={`${id}-tab-${i}`}
+          aria-hidden={i === 0 ? 'false' : 'true'}
+          data-active={i === 0 ? '' : null}
+        >
+          <Image
+            src={shot.src}
+            alt={shot.alt}
+            widths={[240, 280, 560, 840]}
+            sizes="(min-width: 768px) 280px, 240px"
+            class="h-full w-full object-cover object-top"
+            loading="lazy"
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Controls: segmented, doubling as the label of each screen -->
+  <div class="mt-4 flex gap-2" role="tablist" aria-label={`${title} screens`}>
+    {
+      shots.map((shot, i) => (
+        <button
+          class="gallery-tab numeric flex-1 border-t pt-2 text-left text-[10px] font-medium uppercase tracking-[0.14em]"
+          type="button"
+          role="tab"
+          id={`${id}-tab-${i}`}
+          aria-controls={`${id}-panel-${i}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          tabindex={i === 0 ? 0 : -1}
+          data-caption={shot.caption}
+        >
+          {shot.label}
+        </button>
+      ))
+    }
+  </div>
+
+  <p
+    class="mt-3 text-xs leading-relaxed text-[color:var(--color-muted)]"
+    data-gallery-caption
+    aria-live="polite"
+  >
+    {shots[0].caption}
+  </p>
+</div>
+
+<style>
+  .gallery-panel {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 250ms ease,
+      visibility 250ms ease;
+  }
+
+  .gallery-panel[data-active] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .gallery-tab {
+    border-top-color: var(--color-hairline);
+    color: var(--color-muted);
+    transition:
+      color 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .gallery-tab:hover {
+    color: var(--color-ink);
+  }
+
+  .gallery-tab[aria-selected='true'] {
+    border-top-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-panel {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((gallery) => {
+    const tabs = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const panels = Array.from(gallery.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+    const caption = gallery.querySelector<HTMLElement>('[data-gallery-caption]');
+
+    const select = (index: number, moveFocus = false) => {
+      tabs.forEach((tab, i) => {
+        const active = i === index;
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+      });
+
+      panels.forEach((panel, i) => {
+        const active = i === index;
+        panel.toggleAttribute('data-active', active);
+        panel.setAttribute('aria-hidden', String(!active));
+      });
+
+      if (caption) caption.textContent = tabs[index].dataset.caption ?? '';
+      if (moveFocus) tabs[index].focus();
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i));
+
+      tab.addEventListener('keydown', (event) => {
+        const last = tabs.length - 1;
+        let next: number | null = null;
+
+        if (event.key === 'ArrowRight') next = i === last ? 0 : i + 1;
+        else if (event.key === 'ArrowLeft') next = i === 0 ? last : i - 1;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = last;
+
+        if (next !== null) {
+          event.preventDefault();
+          select(next, true);
+        }
+      });
+    });
+  });
+</script>
