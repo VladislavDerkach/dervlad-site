@@ -19,7 +19,10 @@ const { id, title, shots } = Astro.props;
 
 <div class="mx-auto w-full max-w-[240px] md:max-w-none" data-gallery>
   <!-- Screens: one visible at a time, in a fixed-ratio box so nothing shifts -->
-  <div class="relative aspect-[860/1864] overflow-hidden rounded-[1.75rem] border hairline">
+  <div
+    class="relative aspect-[860/1864] touch-pan-y overflow-hidden rounded-[1.75rem] border hairline"
+    data-gallery-viewport
+  >
     {
       shots.map((shot, i) => (
         <div
@@ -111,12 +114,27 @@ const { id, title, shots } = Astro.props;
 </style>
 
 <script>
+  const AUTOPLAY_MS = 3000;
+  const SWIPE_THRESHOLD_PX = 40;
+
   document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((gallery) => {
     const tabs = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
     const panels = Array.from(gallery.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
     const caption = gallery.querySelector<HTMLElement>('[data-gallery-caption]');
+    const viewport = gallery.querySelector<HTMLElement>('[data-gallery-viewport]');
+    if (tabs.length < 2 || !viewport) return;
 
-    const select = (index: number, moveFocus = false) => {
+    let current = 0;
+    // Autoplay pauses while any of these is true; a mouse hover, a keyboard
+    // focus inside the gallery, an in-progress touch, or being off-screen.
+    let hovered = false;
+    let focused = false;
+    let touching = false;
+    let intersecting = false;
+
+    const select = (index: number, { moveFocus = false, auto = false } = {}) => {
+      current = index;
+
       tabs.forEach((tab, i) => {
         const active = i === index;
         tab.setAttribute('aria-selected', String(active));
@@ -129,7 +147,11 @@ const { id, title, shots } = Astro.props;
         panel.setAttribute('aria-hidden', String(!active));
       });
 
-      if (caption) caption.textContent = tabs[index].dataset.caption ?? '';
+      if (caption) {
+        // Autoplay shouldn't spam a screen reader every 3s; manual moves still announce.
+        caption.setAttribute('aria-live', auto ? 'off' : 'polite');
+        caption.textContent = tabs[index].dataset.caption ?? '';
+      }
       if (moveFocus) tabs[index].focus();
     };
 
@@ -147,9 +169,68 @@ const { id, title, shots } = Astro.props;
 
         if (next !== null) {
           event.preventDefault();
-          select(next, true);
+          select(next, { moveFocus: true });
         }
       });
     });
+
+    // Swipe: touch-action: pan-y (in the markup) already tells the browser to
+    // leave horizontal gestures to us, so no preventDefault dance is needed.
+    let touchStartX: number | null = null;
+    let touchStartY: number | null = null;
+
+    viewport.addEventListener(
+      'touchstart',
+      (event) => {
+        const t = event.changedTouches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+        touching = true;
+      },
+      { passive: true },
+    );
+
+    const endTouch = (event: TouchEvent) => {
+      if (touchStartX !== null && touchStartY !== null) {
+        const t = event.changedTouches[0];
+        const dx = t.clientX - touchStartX;
+        const dy = t.clientY - touchStartY;
+        if (Math.abs(dx) > SWIPE_THRESHOLD_PX && Math.abs(dx) > Math.abs(dy)) {
+          const dir = dx < 0 ? 1 : -1;
+          select((current + dir + tabs.length) % tabs.length);
+        }
+      }
+      touchStartX = null;
+      touchStartY = null;
+      touching = false;
+    };
+
+    viewport.addEventListener('touchend', endTouch);
+    viewport.addEventListener('touchcancel', endTouch);
+
+    // Autoplay: a single recurring tick that just no-ops while paused, rather
+    // than juggling separate timers per pause reason.
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    gallery.addEventListener('pointerenter', (e) => {
+      if (e.pointerType === 'mouse') hovered = true;
+    });
+    gallery.addEventListener('pointerleave', (e) => {
+      if (e.pointerType === 'mouse') hovered = false;
+    });
+    gallery.addEventListener('focusin', () => (focused = true));
+    gallery.addEventListener('focusout', () => (focused = false));
+
+    new IntersectionObserver(([entry]) => (intersecting = entry.isIntersecting), {
+      threshold: 0.4,
+    }).observe(gallery);
+
+    if (!prefersReducedMotion) {
+      setInterval(() => {
+        if (hovered || focused || touching || !intersecting) return;
+        if (document.visibilityState !== 'visible') return;
+        select((current + 1) % tabs.length, { auto: true });
+      }, AUTOPLAY_MS);
+    }
   });
 </script>
