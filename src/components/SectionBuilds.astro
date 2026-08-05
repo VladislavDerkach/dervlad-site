@@ -1,6 +1,7 @@
 ---
 import BuildGallery from './BuildGallery.astro';
 import type { Shot } from './BuildGallery.astro';
+import StoreLinks from './StoreLinks.astro';
 
 import handoverboatWalk from '../assets/screenshots/handoverboat/walk_full_boat.png';
 import handoverboatStart from '../assets/screenshots/handoverboat/start_protect_deposit.png';
@@ -53,6 +54,19 @@ const mangaltimeShots: Shot[] = [
   },
 ];
 
+// Store listings. HandoverBoat's iOS build is submitted and waiting on Apple
+// review — swap `appStoreSoon` for its `appStoreUrl` once it clears.
+const stores = {
+  handoverboat: {
+    play: 'https://play.google.com/store/apps/details?id=com.handoverboat.app',
+    appStore: undefined,
+  },
+  mangaltime: {
+    play: 'https://play.google.com/store/apps/details?id=shop.mangaltime.app',
+    appStore: 'https://apps.apple.com/app/shashlyk-assistant/id6794060617',
+  },
+};
+
 const artpawShots: Shot[] = [
   {
     src: artpawHome,
@@ -88,12 +102,19 @@ const artpawShots: Shot[] = [
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
           HandoverBoat
         </h3>
-        <p class="mb-6 text-sm text-[color:var(--color-muted)]">
+        <p class="mb-5 text-sm text-[color:var(--color-muted)]">
           <a href="https://handoverboat.com" class="text-[color:var(--color-accent)] hover:underline">
             handoverboat.com
           </a>
           · charter deposit protection · flagship
         </p>
+        <StoreLinks
+          appName="HandoverBoat"
+          playUrl={stores.handoverboat.play}
+          appStoreUrl={stores.handoverboat.appStore}
+          appStoreSoon
+          class="mb-6"
+        />
         <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
           <p>
             A charter deposit protection platform for yacht and boat rentals.
@@ -127,12 +148,18 @@ const artpawShots: Shot[] = [
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
           Mangal Time
         </h3>
-        <p class="mb-6 text-sm text-[color:var(--color-muted)]">
+        <p class="mb-5 text-sm text-[color:var(--color-muted)]">
           <a href="https://mangal-time.shop" class="text-[color:var(--color-accent)] hover:underline">
             mangal-time.shop
           </a>
           · consumer app, multilingual, live in production
         </p>
+        <StoreLinks
+          appName="Mangal Time"
+          playUrl={stores.mangaltime.play}
+          appStoreUrl={stores.mangaltime.appStore}
+          class="mb-6"
+        />
         <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
           <p>
             A shashlyk grilling timer and assistant. The interesting product decision:
