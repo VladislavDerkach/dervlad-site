@@ -17,10 +17,13 @@ const {
   class: className = '',
 } = Astro.props;
 
-const chip =
-  'inline-flex items-center gap-2 rounded-sm border hairline px-3.5 py-2 text-xs font-medium';
-const linkChip = `${chip} text-[color:var(--color-ink)] transition-colors hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)]`;
-const soonChip = `${chip} border-dashed text-[color:var(--color-muted)]`;
+// A live store link is a filled accent button — the same "this is an action"
+// treatment the Discovery CTA uses, so the chips join the page's own language
+// rather than importing the black official-badge one. The transparent border
+// keeps the filled chip exactly as tall as the outlined plaque beside it.
+const chip = 'inline-flex items-center gap-2 rounded-sm border px-3.5 py-2 text-xs font-medium';
+const linkChip = `${chip} border-transparent bg-[color:var(--color-accent)] text-[color:var(--color-cream)] transition-opacity hover:opacity-90`;
+const soonChip = `${chip} border-dashed hairline text-[color:var(--color-muted)]`;
 ---
 
 <ul class:list={['flex flex-wrap items-center gap-2.5', className]}>
