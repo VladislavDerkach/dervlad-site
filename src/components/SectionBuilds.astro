@@ -33,22 +33,25 @@ const handoverboatShots: Shot[] = [
   },
 ];
 
+// `mangaltime` throughout is the build's own name — the domain (mangal-time.shop),
+// the bundle id (shop.mangaltime.app) and the asset folder all carry it. The
+// product ships in both stores as "Shashlyk Assistant", which is what the page says.
 const mangaltimeShots: Shot[] = [
   {
     src: mangaltimeHome,
-    alt: "Mangal Time — home screen with the headline 'Juicy shashlyk on the first try' and a three-step flow, RU/EN/PL language toggle",
+    alt: "Shashlyk Assistant — home screen with the headline 'Juicy shashlyk on the first try' and a three-step flow, RU/EN/PL language toggle",
     label: 'Home',
     caption: 'Three steps to the first skewer, in RU / EN / PL.',
   },
   {
     src: mangaltimeMeat,
-    alt: "Mangal Time — 'Pick your meat' setup: meat type, cut, skewer count, chunk size and uniformity as structured inputs",
+    alt: "Shashlyk Assistant — 'Pick your meat' setup: meat type, cut, skewer count, chunk size and uniformity as structured inputs",
     label: 'Setup',
     caption: "A grillmaster's tacit knowledge as structured inputs: cut, size, uniformity.",
   },
   {
     src: mangaltimeTimer,
-    alt: "Mangal Time — live grilling timer with a 'Time to flip!' cue and a skewer illustration",
+    alt: "Shashlyk Assistant — live grilling timer with a 'Time to flip!' cue and a skewer illustration",
     label: 'Timer',
     caption: 'One glanceable cue for dirty hands and bright sun: time to flip.',
   },
@@ -141,12 +144,12 @@ const artpawShots: Shot[] = [
       </div>
     </article>
 
-    <!-- Mangal Time -->
+    <!-- Shashlyk Assistant -->
     <article class="grid gap-10 md:grid-cols-[280px_1fr] md:items-center md:gap-14">
-      <BuildGallery id="mangaltime" title="Mangal Time" shots={mangaltimeShots} />
+      <BuildGallery id="mangaltime" title="Shashlyk Assistant" shots={mangaltimeShots} />
       <div>
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
-          Mangal Time
+          Shashlyk Assistant
         </h3>
         <p class="mb-5 text-sm text-[color:var(--color-muted)]">
           <a href="https://mangal-time.shop" class="text-[color:var(--color-accent)] hover:underline">
@@ -155,7 +158,7 @@ const artpawShots: Shot[] = [
           · consumer app, multilingual, live in production
         </p>
         <StoreLinks
-          appName="Mangal Time"
+          appName="Shashlyk Assistant"
           playUrl={stores.mangaltime.play}
           appStoreUrl={stores.mangaltime.appStore}
           class="mb-6"
