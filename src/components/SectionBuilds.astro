@@ -57,12 +57,12 @@ const mangaltimeShots: Shot[] = [
   },
 ];
 
-// Store listings. HandoverBoat's iOS build is submitted and waiting on Apple
-// review — swap `appStoreSoon` for its `appStoreUrl` once it clears.
+// Store listings. Country-less App Store links so each visitor lands in their
+// own storefront rather than the US one.
 const stores = {
   handoverboat: {
     play: 'https://play.google.com/store/apps/details?id=com.handoverboat.app',
-    appStore: undefined,
+    appStore: 'https://apps.apple.com/app/handoverboat/id6794426942',
   },
   mangaltime: {
     play: 'https://play.google.com/store/apps/details?id=shop.mangaltime.app',
@@ -115,7 +115,6 @@ const artpawShots: Shot[] = [
           appName="HandoverBoat"
           playUrl={stores.handoverboat.play}
           appStoreUrl={stores.handoverboat.appStore}
-          appStoreSoon
           class="mb-6"
         />
         <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
