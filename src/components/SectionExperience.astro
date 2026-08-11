@@ -1,6 +1,13 @@
 ---
 const experience = [
-  { company: 'RedTrack.io', role: 'Product Discovery Lead & AI Champion', dates: 'Nov 2025 – present' },
+  {
+    company: 'RedTrack.io',
+    role: 'Product Discovery Lead & AI Champion',
+    // Only this row carries a scope line — the title alone doesn't say that the
+    // job is AI product operations.
+    scope: 'AI product operations · 25+ agents in production',
+    dates: 'Nov 2025 – present',
+  },
   { company: 'Zorka.Agency (FemFast)', role: 'Product Lead', dates: 'Mar 2025 – Nov 2025' },
   { company: 'ERA Wallet (ex-1inch)', role: 'Senior Product Manager', dates: 'Sep 2024 – Mar 2025' },
   { company: 'Crypto NeoBank (NDA)', role: 'Product Lead', dates: 'Aug 2023 – Aug 2024' },
@@ -19,18 +26,22 @@ const experience = [
     05 · Experience
   </p>
   <p class="mb-10 text-lg leading-relaxed text-[color:var(--color-ink)]">
-    Twelve years, eleven companies, four industries. Details on
+    Eleven companies, four industries — five years of it as a product manager.
+    Details on
     <a href="https://www.linkedin.com/in/vladislavderkach/" class="text-[color:var(--color-accent)] hover:underline">LinkedIn</a>.
   </p>
   <ul class="divide-y hairline border-t border-b hairline">
     {
-      experience.map(({ company, role, dates }) => (
+      experience.map(({ company, role, scope, dates }) => (
         <li class="grid gap-1 py-4 md:grid-cols-[1fr_auto] md:items-baseline md:gap-6 md:py-5">
           <div>
             <div class="text-base font-semibold tracking-tight text-[color:var(--color-ink)]">
               {company}
             </div>
             <div class="text-sm text-[color:var(--color-muted)]">{role}</div>
+            {scope && (
+              <div class="mt-0.5 text-sm text-[color:var(--color-accent)]">{scope}</div>
+            )}
           </div>
           <div class="text-sm text-[color:var(--color-muted)] numeric md:text-right">
             {dates}

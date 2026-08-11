@@ -8,8 +8,11 @@ interface Props {
 
 const {
   title = 'Vlad Derkach — AI Product Leader',
-  description = 'Product Discovery Lead & AI Champion at RedTrack.io. 12 years across MarTech, Web3, FinTech, HealthTech, and hardware. Building AI-native product organizations.',
+  description = "AI Product Lead. I build production agent fleets and MCP infrastructure inside product organizations — 25+ agents live at RedTrack.io. Open to Head of AI Product and AI Product Lead roles, remote or Warsaw. Also available for AI product engagements.",
 } = Astro.props;
+
+const siteUrl = 'https://dervlad.com';
+const ogImage = `${siteUrl}/og.jpg`;
 ---
 
 <!doctype html>
@@ -30,7 +33,15 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <!-- Without an image the link renders as a dead grey card on LinkedIn, which
+         is the main channel this page is shared through. -->
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vlad Derkach" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
   </head>
   <body>

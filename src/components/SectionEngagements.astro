@@ -1,0 +1,72 @@
+---
+// Prices are starting anchors, derived from a €800–1,500 day rate and the
+// European fractional-executive benchmark (€4–8k/month for one day a week).
+const packages = [
+  {
+    name: 'AI Product Audit',
+    duration: 'Two weeks',
+    desc: "I map where AI actually pays inside your product and operations, which agents to build first, and what each will cost per user per month. You get a prioritised build list with unit economics attached — not a maturity model.",
+    price: 'From €4,000',
+  },
+  {
+    name: 'Agent Fleet Build',
+    duration: 'Four to eight weeks',
+    desc: 'I design and ship the first agents into your production operations — support, competitive intelligence, research, onboarding — with logging, evals, confidence thresholds and a cost model from day one. Your team takes over a running system and a handover document.',
+    price: 'From €12,000',
+  },
+  {
+    name: 'Fractional AI Product Lead',
+    duration: 'One to one and a half days a week',
+    desc: 'I own the AI product line: what gets built, what gets killed, how quality is measured, and how the team learns to work this way. Minimum three months.',
+    price: 'From €5,000 / month',
+  },
+];
+---
+
+<section id="engagements" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    09 · Engagements
+  </p>
+
+  <div class="mb-14 max-w-3xl">
+    <p class="text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+      I take on one or two engagements at a time, alongside my main role. The work
+      is always the same shape: production AI inside a product organisation — not
+      a strategy deck about it.
+    </p>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-3">
+    {
+      packages.map((p) => (
+        <article class="flex flex-col rounded-sm border hairline p-6">
+          <p class="mb-3 text-[10px] font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)] numeric">
+            {p.duration}
+          </p>
+          <h3 class="mb-3 text-lg font-bold tracking-tight text-[color:var(--color-ink)]">
+            {p.name}
+          </h3>
+          <p class="mb-6 text-sm leading-relaxed text-[color:var(--color-muted)]">
+            {p.desc}
+          </p>
+          <p class="mt-auto text-sm font-semibold text-[color:var(--color-accent)] numeric">
+            {p.price}
+          </p>
+        </article>
+      ))
+    }
+  </div>
+
+  <p class="mt-10 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
+    Discovery work — AJTBD research, segmentation, opportunity mapping — is part
+    of every engagement, not a separate product. The toolkit above is how I run it.
+  </p>
+
+  <a
+    href="mailto:info@dervlad.com?subject=Engagement"
+    class="mt-8 inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-accent)] hover:underline"
+  >
+    Start a conversation
+    <span aria-hidden="true">→</span>
+  </a>
+</section>
