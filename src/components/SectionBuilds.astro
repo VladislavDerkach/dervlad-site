@@ -11,6 +11,9 @@ import mangaltimeMeat from '../assets/screenshots/mangaltime/meat_parameters.png
 import mangaltimeTimer from '../assets/screenshots/mangaltime/timer_flip_cue.png';
 import artpawHome from '../assets/screenshots/artpaw/home.png';
 import artpawProduct from '../assets/screenshots/artpaw/product.png';
+import tapsetLog from '../assets/screenshots/tapset/log_one_tap.png';
+import tapsetRest from '../assets/screenshots/tapset/rest_timer.png';
+import tapsetWatch from '../assets/screenshots/tapset/wear_os_set.png';
 
 const handoverboatShots: Shot[] = [
   {
@@ -68,7 +71,32 @@ const stores = {
     play: 'https://play.google.com/store/apps/details?id=shop.mangaltime.app',
     appStore: 'https://apps.apple.com/app/shashlyk-assistant/id6794060617',
   },
+  tapset: {
+    play: 'https://play.google.com/store/apps/details?id=fit.tapset',
+    appStore: 'https://apps.apple.com/app/tapset/id6803261393',
+  },
 };
+
+const tapsetShots: Shot[] = [
+  {
+    src: tapsetLog,
+    alt: 'Tapset — barbell bench press screen with weight and reps pre-filled from the last workout and one-tap logging circles per set',
+    label: 'Log',
+    caption: 'Weight and reps arrive pre-filled from last time — a set logs in one tap.',
+  },
+  {
+    src: tapsetRest,
+    alt: "Tapset — live rest timer showing 1:59 after set one of three, with '+30' and 'Enough' controls and a 'since your last set' counter",
+    label: 'Rest',
+    caption: 'The rest timer starts itself the moment a set is logged.',
+  },
+  {
+    src: tapsetWatch,
+    alt: 'Tapset — Wear OS smartwatch screen with the rep counter for barbell bench press, minus and plus buttons and a confirm tick',
+    label: 'Watch',
+    caption: 'The set counter on a Wear OS watch — the phone stays in the bag.',
+  },
+];
 
 const artpawShots: Shot[] = [
   {
@@ -92,7 +120,7 @@ const artpawShots: Shot[] = [
       08 · Personal builds
     </p>
     <p class="mb-16 text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
-      I ship products under my own name, not just under a job title. Three live,
+      I ship products under my own name, not just under a job title. Four live,
       several in the pipeline.
     </p>
   </div>
@@ -216,6 +244,49 @@ const artpawShots: Shot[] = [
       </div>
       <div class="order-1 md:order-2">
         <BuildGallery id="artpaw" title="ArtPaw" shots={artpawShots} />
+      </div>
+    </article>
+
+    <!-- Tapset -->
+    <article class="grid gap-10 md:grid-cols-[280px_1fr] md:items-center md:gap-14">
+      <BuildGallery id="tapset" title="Tapset" shots={tapsetShots} />
+      <div>
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
+          Tapset
+        </h3>
+        <p class="mb-5 text-sm text-[color:var(--color-muted)]">
+          <a href="https://tapset.fit" class="text-[color:var(--color-accent)] hover:underline">
+            tapset.fit
+          </a>
+          · one-tap strength training log · phone + Wear OS
+        </p>
+        <StoreLinks
+          appName="Tapset"
+          playUrl={stores.tapset.play}
+          appStoreUrl={stores.tapset.appStore}
+          class="mb-6"
+        />
+        <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
+          <p>
+            A strength-training log for people who already train and want to record
+            a set faster than a spreadsheet allows. Weight and reps arrive pre-filled
+            with the last result — match it, and logging is a single tap. The rest
+            timer starts itself the moment a set is logged and vibrates through a
+            locked screen in a gym bag. No account, no server: the entire history
+            lives on the device, fully offline.
+          </p>
+          <p>
+            Tapset is also built for smartwatches running Wear OS. The watch takes
+            over the between-sets loop — rep counter, one-tap confirm, rest countdown
+            on the wrist — so the phone can stay in the bag from the first set to the
+            last. The phone keeps the record; the watch is the remote.
+          </p>
+          <p class="text-[color:var(--color-muted)]">
+            Same design constraint as Shashlyk Assistant: an interface tuned for the
+            actual moment of use — chalked hands, ninety seconds of rest, split
+            attention.
+          </p>
+        </div>
       </div>
     </article>
 
