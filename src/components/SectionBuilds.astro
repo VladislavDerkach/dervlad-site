@@ -92,7 +92,7 @@ const tapsetShots: Shot[] = [
   },
   {
     src: tapsetWatch,
-    alt: 'Tapset — Wear OS smartwatch screen with the rep counter for barbell bench press, minus and plus buttons and a confirm tick',
+    alt: 'Tapset on a Samsung Galaxy Watch 8 Classic — the Wear OS rep counter for barbell bench press with minus and plus buttons and a confirm tick',
     label: 'Watch',
     caption: 'The set counter on a Wear OS watch — the phone stays in the bag.',
   },
@@ -212,45 +212,9 @@ const artpawShots: Shot[] = [
       </div>
     </article>
 
-    <!-- ArtPaw -->
+    <!-- Tapset -->
     <article class="grid gap-10 md:grid-cols-[1fr_280px] md:items-center md:gap-14">
       <div class="order-2 md:order-1">
-        <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
-          ArtPaw
-        </h3>
-        <p class="mb-6 text-sm text-[color:var(--color-muted)]">
-          <a href="https://artpaw.shop" class="text-[color:var(--color-accent)] hover:underline">
-            artpaw.shop
-          </a>
-          · live e-commerce · real orders across the EU
-        </p>
-        <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
-          <p>
-            Renaissance-style pet portraits — your dog or cat composed in the light
-            of the old masters, printed, framed, and delivered across Europe. A full
-            Shopify storefront: catalogue, variants, checkout, EU shipping and tax,
-            and every policy page.
-          </p>
-          <p>
-            I built the whole thing — brand, copy, imagery, and store — 100% by
-            AI-assisted coding, originally as an attribution testbed for my day job.
-            Then it started taking real orders.
-          </p>
-          <p class="text-[color:var(--color-muted)]">
-            The point it proves: vibe-coding reaches all the way to a transacting
-            business, not just a prototype.
-          </p>
-        </div>
-      </div>
-      <div class="order-1 md:order-2">
-        <BuildGallery id="artpaw" title="ArtPaw" shots={artpawShots} />
-      </div>
-    </article>
-
-    <!-- Tapset -->
-    <article class="grid gap-10 md:grid-cols-[280px_1fr] md:items-center md:gap-14">
-      <BuildGallery id="tapset" title="Tapset" shots={tapsetShots} />
-      <div>
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
           Tapset
         </h3>
@@ -285,6 +249,42 @@ const artpawShots: Shot[] = [
             Same design constraint as Shashlyk Assistant: an interface tuned for the
             actual moment of use — chalked hands, ninety seconds of rest, split
             attention.
+          </p>
+        </div>
+      </div>
+      <div class="order-1 md:order-2">
+        <BuildGallery id="tapset" title="Tapset" shots={tapsetShots} />
+      </div>
+    </article>
+
+    <!-- ArtPaw -->
+    <article class="grid gap-10 md:grid-cols-[280px_1fr] md:items-center md:gap-14">
+      <BuildGallery id="artpaw" title="ArtPaw" shots={artpawShots} />
+      <div>
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-[color:var(--color-ink)] md:text-3xl">
+          ArtPaw
+        </h3>
+        <p class="mb-6 text-sm text-[color:var(--color-muted)]">
+          <a href="https://artpaw.shop" class="text-[color:var(--color-accent)] hover:underline">
+            artpaw.shop
+          </a>
+          · live e-commerce · real orders across the EU
+        </p>
+        <div class="space-y-5 text-base leading-relaxed text-[color:var(--color-ink)] md:text-lg">
+          <p>
+            Renaissance-style pet portraits — your dog or cat composed in the light
+            of the old masters, printed, framed, and delivered across Europe. A full
+            Shopify storefront: catalogue, variants, checkout, EU shipping and tax,
+            and every policy page.
+          </p>
+          <p>
+            I built the whole thing — brand, copy, imagery, and store — 100% by
+            AI-assisted coding, originally as an attribution testbed for my day job.
+            Then it started taking real orders.
+          </p>
+          <p class="text-[color:var(--color-muted)]">
+            The point it proves: vibe-coding reaches all the way to a transacting
+            business, not just a prototype.
           </p>
         </div>
       </div>
