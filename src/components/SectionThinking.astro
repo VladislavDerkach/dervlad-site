@@ -1,0 +1,100 @@
+---
+// Three operating ideas, published as method only. The publication-risk review in
+// signature_takes.md is binding here: no internal cases, no unreleased products,
+// no client data, and the lawful basis for using call archives is stated as a
+// condition in the copy rather than as a footnote.
+const ideas = [
+  {
+    role: 'Where the jobs come from',
+    title: "You can't automate the interview. You can automate everything around it.",
+    body: [
+      "Nothing replaces a live customer interview — I tested that conclusion hard before accepting it. A synthetic persona generates what's plausible, and plausible is the opposite of what you go into discovery for. But most companies already sit on an archive of real conversations with real customers: sales calls, demos, onboarding, support. Those are authentic words from real people, collected for a different purpose. The model isn't a generator there. It's an extractor.",
+      'Given the discipline to store those conversations properly and a lawful basis to use them, transcripts give up Jobs at scale — the context, the trigger, the success criteria, the alternatives that were weighed. That produces a map instead of a handful of points, which is what stops live interviews being spent on reconnaissance.',
+    ],
+    limit:
+      "It will not surface hidden, unarticulated jobs — those still come out live. The archive is also biased towards people who made it to a conversation at all. And with no lawful basis to use the recordings, the method doesn't run.",
+  },
+  {
+    role: 'Where the mechanics come from',
+    title: 'Shop for mechanics on a donor market.',
+    body: [
+      "Benchmarking direct competitors converges a whole category on the same dashboard. Everyone studies everyone, so nobody finds a mechanic that isn't already in the room. That's a local optimum, reached expensively.",
+      "So I look for a more mature market whose users behave the same way, and go shopping there instead. A performance media buyer works several screens with their own money at risk in real time, decides within the day, and distrusts somebody else's automation. So does a day trader — and trading terminals are decades of product selection already paid for by a bigger, older, wealthier market. Thresholds instead of reports. Watchlists. Acting straight from the alert rather than being sent to an interface. Real-time P&L. Stop-loss limits. Deliberate information density where the design instinct says to simplify.",
+    ],
+    limit:
+      'An analogy is not an identity — decision horizons, switching costs and regulation all differ, and part of the segment genuinely works slowly and in batches. Every transfer is a value hypothesis, and it goes through the same cheapest-test-first validation as anything else.',
+  },
+  {
+    role: 'How the value gets delivered',
+    title: 'Silence is a feature.',
+    body: [
+      'There have been two eras of value delivery. In the first, the user had to come in and do the work. In the second, products started doing the work and delivering a result — reports, digests, recommendations. Both still charge the user attention: somebody has to read the thing and decide whether it mattered.',
+      "The third shift isn't more automation, it's less attention. The product stays quiet while everything is fine, and speaks only when an action is required — carrying the action, not just the news. A recurring digest is actively harmful: if nine messages in ten need nothing, it trains people to ignore the tenth. Zero false alarms beats completeness. And the metric isn't open rate, it's the share of messages followed by an action.",
+    ],
+    limit:
+      'Staying quiet means occasionally missing a weak signal. I take that trade knowingly: a missed alert costs one mistake, while trained-in indifference costs the entire channel — and that one is irreversible.',
+  },
+];
+---
+
+<section id="thinking" class="mx-auto max-w-5xl scroll-mt-16 px-6 py-24 md:py-32">
+  <p class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-muted)] numeric">
+    09 · How I think
+  </p>
+
+  <div class="mb-4 max-w-3xl">
+    <p class="text-lg leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+      Three ideas I actually operate on. They are one chain rather than three
+      opinions: jobs come from authentic data, mechanics come from a more mature
+      market with the same behaviour, and delivery is designed around attention
+      instead of frequency of contact.
+    </p>
+  </div>
+
+  <p class="mb-14 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
+    Each one has a limit, and I've named it underneath.
+  </p>
+
+  <div class="border-b hairline">
+    {
+      ideas.map((idea, i) => (
+        <article class="grid gap-6 border-t hairline py-10 md:grid-cols-[1fr_2fr] md:gap-12 md:py-12">
+          <div>
+            <span class="numeric mb-3 block text-xs font-medium text-[color:var(--color-accent)]">
+              {`0${i + 1}`}
+            </span>
+            <p class="text-sm leading-snug text-[color:var(--color-muted)]">
+              {idea.role}
+            </p>
+          </div>
+
+          <div>
+            <h3 class="mb-4 text-xl font-bold leading-snug tracking-tight text-[color:var(--color-ink)] md:text-2xl">
+              {idea.title}
+            </h3>
+
+            {idea.body.map((para) => (
+              <p class="mb-4 text-base leading-relaxed text-[color:var(--color-muted)]">
+                {para}
+              </p>
+            ))}
+
+            <p class="mt-6 border-l-2 hairline pl-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
+              <span class="font-medium text-[color:var(--color-ink)]">
+                Where it stops.
+              </span>{' '}
+              {idea.limit}
+            </p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <p class="mt-10 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
+    All three rest on the same base — Advanced Jobs-to-be-Done, in Ivan Zamesin's
+    canon rather than the generic Christensen framing: a segment defined by shared
+    jobs and success criteria, value as energy saved rather than features added,
+    and the riskiest assumption tested before anything gets built.
+  </p>
+</section>
